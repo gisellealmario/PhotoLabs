@@ -16,7 +16,6 @@ const sampleDataForPhotoListItem = {
 };
 
 const App = () => (
-  
   <div className="App">
     <PhotoListItem {...sampleDataForPhotoListItem}/>
   </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from "react";
 import '../styles/PhotoFavButton.scss';
+import FavIcon from './FavIcon';
+
 
 const PhotoFavButton = () => {
   const [like, setLike] = useState(false);
@@ -12,7 +14,7 @@ const PhotoFavButton = () => {
   return (
     <div className="photo-list__fav-icon" onClick={clickHandler}>
       <div className="photo-list__fav-icon-svg heart">
-        {like ? <i className="fa-solid fa-heart" style={{ color: 'red' }} /> : <i className="fa-regular fa-heart" style={{ color: 'red' }} />}
+        {like ? <FavIcon selected={like} /> : <FavIcon selected={like} />}
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const PhotoListItem = (props) => {
       <PhotoFavButton />
       <img src={props.imageSource} className="photo-list__image" />
       <div className="photo-list__user-details">
-        <img src={props.photo.profile} className="photo-list__user-profile" />
+        <img src={props.photo.user.profile} className="photo-list__user-profile" />
         <div className="photo-list__user-info" >
           <h3>{props.photo.user.name}</h3>
           <p className="photo-list__user-location">{`${props.photo.location.city}, ${props.photo.location.country}`}</p>

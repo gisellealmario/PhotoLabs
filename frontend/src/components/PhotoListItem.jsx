@@ -1,8 +1,6 @@
 import React from "react";
 import "../styles/PhotoListItem.scss";
-import App from "../App";
 import PhotoFavButton from "./PhotoFavButton";
-import PhotoList from "./PhotoList";
 
 const PhotoListItem = (props) => {
   return (

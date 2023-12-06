@@ -1,26 +1,42 @@
 import React from 'react';
 import TopNavigation from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
+import FavBadge from 'components/FavBadge';
 import { useState } from 'react';
 
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
-  const [selectedPhotos, setSelectedPhotos] = useState([]);
-  const handleSelection = (photoId) => {
-    const isSelected = selectedPhotos.includes(photoId);
-    if (isSelected) {
-      setSelectedPhotos(selectedPhotos.filter((id) => id !== photoId));
-    } else {
-      setSelectedPhotos([...selectedPhotos, photoId]);
+  const [alert, setAlert] = useState(false);
+  const [favPhotos, setfavPhotos] = useState([]);
 
+  const toggleFavourites = (id) => {
+    if (favPhotos.includes(id)) {
+      setfavPhotos((prev) => {
+        return [...prev].filter((tempId) => tempId !== id);
+      });
+    } else {
+      setfavPhotos((prev) => {
+        return [...prev, id];
+      });
     }
   };
 
+
   return (
     <div className='home-route'>
-      <TopNavigation />
-      <PhotoList onPhotoSelect={handleSelection} selectedPhotos={selectedPhotos} />
+      <TopNavigation
+        alert={alert}
+        setAlert={setAlert}
+        favPhotos={favPhotos}
+        toggleFavourites={toggleFavourites}
+      />
+      <PhotoList
+        alert={alert}
+        setAlert={setAlert}
+        favPhotos={favPhotos}
+        toggleFavourites={toggleFavourites}
+      />
     </div>
   );
 };

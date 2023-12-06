@@ -7,11 +7,19 @@ import photos from '../mocks/photos';
 
 const PhotoList = (props) => {
   return (
-    <ul className="photo-list">
-      {photos.map((photo, index) => (
-        <PhotoListItem key={index} photo={photo} imageSource={photo.urls.regular} />
+    <div className="photo-list">
+      {photos.map((photo) => (
+        <PhotoListItem
+          alert={props.alert}
+          setAlert={props.setAlert}
+          key={photo.id}
+          id={photo.id}
+          PhotoData={photo}
+          favPhotos={props.favPhotos}
+          toggleFavourites={props.toggleFavourites}
+        />
       ))}
-    </ul>
+    </div>
   );
 };
 

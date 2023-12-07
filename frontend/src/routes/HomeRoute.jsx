@@ -30,11 +30,6 @@ const HomeRoute = (props) => {
     setModalVisible(true);
   };
 
-  const closeModal = () => {
-    setSelectedPhotoId(null);
-    setModalVisible(false);
-  };
-
 
 
   return (

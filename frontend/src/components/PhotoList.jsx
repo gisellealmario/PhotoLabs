@@ -6,6 +6,10 @@ import photos from '../mocks/photos';
 
 
 const PhotoList = (props) => {
+  const handlePhotoClick = (id) => {
+    props.openPhotoModal(id);
+  };
+
   return (
     <div className="photo-list">
       {photos.map((photo) => (
@@ -17,6 +21,8 @@ const PhotoList = (props) => {
           PhotoData={photo}
           favPhotos={props.favPhotos}
           toggleFavourites={props.toggleFavourites}
+          setModalVisible={props.setModalVisible}
+          onClick={() => handlePhotoClick(photo.id)}
         />
       ))}
     </div>

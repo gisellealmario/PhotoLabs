@@ -6,23 +6,22 @@ import PhotoList from "components/PhotoList";
 import similarPhotos from "../mocks/photos.js";
 import PhotoFavButton from "../components/PhotoFavButton";
 import "../styles/PhotoFavButton.scss";
+import useApplicationData from "../hooks/useApplicationData";
+
 
 
 
 const PhotoDetailsModal = ({
-  setModalVisible,
   selectedPhotoId,
   alert,
   favPhotos,
   setAlert,
-  setSelectedPhotoId,
+  setSelectedPhoto,
   toggleFavourites,
   openPhotoModal,
+  onClosePhotoDetailsModal,
 
 }) => {
-  const closeModal = () => {
-    setModalVisible(false);
-  };
 
   const photo = similarPhotos.find((photo) => photo.id === selectedPhotoId);
   console.log(similarPhotos);
@@ -30,7 +29,7 @@ const PhotoDetailsModal = ({
     <div className="photo-details-modal">
       <button
         className="photo-details-modal__close-button"
-        onClick={closeModal}
+        onClick={onClosePhotoDetailsModal}
       >
         <img src={closeSymbol} alt="close symbol" />
       </button>
@@ -63,12 +62,12 @@ const PhotoDetailsModal = ({
           setAlert={setAlert}
           key={photo.id}
           id={photo.id}
-          photos={similarPhotos}
           PhotoData={photo}
           favPhotos={favPhotos}
-          setSelectedPhotoId={setSelectedPhotoId}
+          setSelectedPhoto={setSelectedPhoto}
           toggleFavourites={toggleFavourites}
           openPhotoModal={openPhotoModal}
+          onClosePhotoDetailsModal={onClosePhotoDetailsModal}
 
         />
       </div>

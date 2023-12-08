@@ -8,7 +8,8 @@ import photos from '../mocks/photos';
 const PhotoList = (props) => {
   const handlePhotoClick = (id) => {
     if (!props.modalVisible) {
-      props.openPhotoModal(id);
+      props.openPhotoModal();
+      props.setSelectedPhoto(id);
     }
   };
 
@@ -24,8 +25,10 @@ const PhotoList = (props) => {
           favPhotos={props.favPhotos}
           toggleFavourites={props.toggleFavourites}
           setModalVisible={props.setModalVisible}
-          onClick={() => handlePhotoClick(photo.id)}
+          onClick={handlePhotoClick}
           openPhotoModal={props.openPhotoModal}
+          onClosePhotoDetailsModal={props.onClosePhotoDetailsModal}
+
 
         />
       ))}

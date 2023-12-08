@@ -62,6 +62,8 @@ const HomeRoute = (props) => {
           setAlert={setAlert}
           favPhotos={favPhotos}
           toggleFavourites={toggleFavourites}
+          openPhotoModal={openPhotoModal}
+
         />
       )}
     </div>

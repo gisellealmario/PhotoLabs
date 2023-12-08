@@ -5,6 +5,8 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from "components/PhotoList";
 import similarPhotos from "../mocks/photos.js";
 import PhotoFavButton from "../components/PhotoFavButton";
+import "../styles/PhotoFavButton.scss";
+
 
 
 const PhotoDetailsModal = ({
@@ -15,6 +17,8 @@ const PhotoDetailsModal = ({
   setAlert,
   setSelectedPhotoId,
   toggleFavourites,
+  openPhotoModal,
+
 }) => {
   const closeModal = () => {
     setModalVisible(false);
@@ -30,7 +34,7 @@ const PhotoDetailsModal = ({
       >
         <img src={closeSymbol} alt="close symbol" />
       </button>
-      <div className="photo-details-modal__image">
+      <div>
         <PhotoFavButton
           alert={alert}
           setAlert={setAlert}
@@ -64,6 +68,8 @@ const PhotoDetailsModal = ({
           favPhotos={favPhotos}
           setSelectedPhotoId={setSelectedPhotoId}
           toggleFavourites={toggleFavourites}
+          openPhotoModal={openPhotoModal}
+
         />
       </div>
     </div>

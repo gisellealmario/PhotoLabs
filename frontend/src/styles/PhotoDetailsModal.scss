@@ -1,6 +1,6 @@
 .photo-details-modal {
   background-color: white;
-  box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
+  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, .5);
   position: absolute;
   top: 55%;
   left: 50%;
@@ -56,16 +56,16 @@
   font-size: 18px;
   font-weight: 500;
   color: #1e1e1e;
-  margin-top: 24px;
-  margin-bottom: 24px;
   width: 90%;
   margin-left: 36px;
-
+  margin-top: 34px;
+  margin-bottom: 10px;
 }
 
 .photo-details-modal__photographer-location {
   color: #838383;
 }
+
 .photo-details-modal__photographer-profile {
   object-fit: cover;
   border-radius: 100%;
@@ -80,4 +80,17 @@
   font-weight: 700;
   font-size: 12px;
   margin-left: 8px;
+}
+
+.line {
+  border-top: 1px solid #cdc8c8;
+}
+
+.align {
+  margin-left: 40px;
+  margin-top: 15px;
+}
+
+.photo-details-modal__container {
+  margin-left: 20px;
 }

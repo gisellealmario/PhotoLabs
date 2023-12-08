@@ -1,8 +1,8 @@
 import React from 'react';
 import TopNavigation from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
-import FavBadge from 'components/FavBadge';
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
+import photos from "../mocks/photos";
 import { useState } from 'react';
 
 import '../styles/HomeRoute.scss';
@@ -48,11 +48,20 @@ const HomeRoute = (props) => {
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
         openPhotoModal={openPhotoModal}
+        selectedPhotoId={selectedPhotoId}
+        setSelectedPhotoId={setSelectedPhotoId}
+        photos={photos}
       />
       {modalVisible && selectedPhotoId !== null && (
         <PhotoDetailsModal
           selectedPhotoId={selectedPhotoId}
           setModalVisible={setModalVisible}
+          setSelectedPhotoId={setSelectedPhotoId}
+          photos={photos}
+          alert={alert}
+          setAlert={setAlert}
+          favPhotos={favPhotos}
+          toggleFavourites={toggleFavourites}
         />
       )}
     </div>

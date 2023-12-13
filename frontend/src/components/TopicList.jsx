@@ -2,14 +2,16 @@ import React from "react";
 
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
-import topics from '../mocks/topics';
+import topics from "../mocks/topics";
+
 
 const TopicList = (props) => {
   return (
     <div className="top-nav-bar__topic-list">
-      {topics.map((topic) => (
-        <TopicListItem key={topic.id} label={topic.title} />
-      ))}
+      <TopicListItem
+        TopicData={props.topics}
+        fetchPhotosByTopic={props.fetchPhotosByTopic} // pass the function to component
+      />
     </div>
   );
 };

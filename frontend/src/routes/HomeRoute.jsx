@@ -6,7 +6,7 @@ import useApplicationData from "hooks/useApplicationData";
 
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = (props) => {
+const HomeRoute = () => {
   const { state, actions } = useApplicationData();
 
   return (
@@ -14,9 +14,12 @@ const HomeRoute = (props) => {
       <TopNavigation
         favPhotos={state.favPhotos}
         toggleFavourites={actions.toggleFavourites}
+        topics={state.topicData}
+        fetchPhotosByTopic={actions.fetchPhotosByTopic}
       />
       <PhotoList
         favPhotos={state.favPhotos}
+        photos={state.photoData}
         modalVisible={state.modalVisible}
         selectedPhotoId={state.selectedPhotoId}
         toggleFavourites={actions.toggleFavourites}
@@ -27,6 +30,7 @@ const HomeRoute = (props) => {
       {state.modalVisible && state.selectedPhotoId && (
         <PhotoDetailsModal
           selectedPhotoId={state.selectedPhotoId}
+          photos={state.photoData}
           favPhotos={state.favPhotos}
           toggleFavourites={actions.toggleFavourites}
           setSelectedPhoto={actions.setSelectedPhoto}

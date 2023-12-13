@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
 
 // actions
 export const ACTIONS = {
@@ -8,17 +8,25 @@ export const ACTIONS = {
   SET_PHOTO_MODAL_VISIBLE: "SET_PHOTO_MODAL_VISIBLE",
   SET_PHOTO_MODAL_CLOSE: "SET_PHOTO_MODAL_CLOSE",
   TOGGLE_FAVORITE: "TOGGLE_FAVORITE",
+  SET_PHOTO_DATA: "SET_PHOTO_DATA",
+  SET_TOPIC_DATA: "SET_TOPIC_DATA",
+  GET_PHOTOS_BY_TOPIC: "GET_PHOTOS_BY_TOPIC"
+
 };
 
 // state data
 const initialState = {
+  photoData: [],
+  topicData: [],
   favPhotos: [],
   modalVisible: false,
   selectedPhotoId: null,
+  topicPhotos: [],
+
 };
 
 const reducer = (state, action) => {
-
+  7;
   switch (action.type) {
   case ACTIONS.SET_SELECTED_PHOTO_ID:
     return {
@@ -45,7 +53,21 @@ const reducer = (state, action) => {
     return {
       ...state,
       modalVisible: false,
-      // selectedPhotoId: null,
+    };
+  case ACTIONS.SET_PHOTO_DATA:
+    return {
+      ...state,
+      photoData: action.payload,
+    };
+  case ACTIONS.SET_TOPIC_DATA:
+    return {
+      ...state,
+      topicData: action.payload,
+    };
+  case ACTIONS.GET_PHOTOS_BY_TOPIC:
+    return {
+      ...state,
+      photoData: action.payload,
     };
   default:
     throw new Error(
@@ -77,6 +99,29 @@ const useApplicationData = () => {
     dispatch({ type: ACTIONS.SET_SELECTED_PHOTO_ID, payload: id || null });
   };
 
+  // Fetch photos by topics
+  const fetchPhotosByTopic = (id) => {
+    fetch("/api/topics/photos/" + id)
+      .then((res) => res.json())
+      .then((data) => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPIC, payload: data }));
+  };
+
+  // Fetch photo data
+  useEffect(() => {
+    fetch("/api/photos")
+      .then((res) => res.json())
+      .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
+  }, []);
+
+  
+
+  // Fetch topic data
+  useEffect(() => {
+    fetch("/api/topics")
+      .then(res => res.json())
+      .then(data => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
+  }, []); // Empty dependency array to render once after mounting
+
   return {
     state,
     actions: {
@@ -84,6 +129,10 @@ const useApplicationData = () => {
       openPhotoModal,
       onClosePhotoDetailsModal,
       setSelectedPhoto,
+      photoData: state.photoData,
+      topicData: state.topicData,
+      topicPhotos: state.topicPhotos,
+      fetchPhotosByTopic,
     },
   };
 };

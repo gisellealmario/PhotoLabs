@@ -5,8 +5,6 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from "components/PhotoList";
 import PhotoFavButton from "../components/PhotoFavButton";
 import "../styles/PhotoFavButton.scss";
-import useApplicationData from "../hooks/useApplicationData";
-
 
 
 
@@ -22,10 +20,8 @@ const PhotoDetailsModal = ({
   photos,
 
 }) => {
-  const { actions } = useApplicationData();
 
   const photo = photos.find((photo) => photo.id === selectedPhotoId);
-  // console.log(similarPhotos);
   return (
     <div className="photo-details-modal">
       <button

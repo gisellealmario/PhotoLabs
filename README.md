@@ -25,11 +25,11 @@ npm start
 ## Screenshots
 
 ### PhotoLabs Welcome Page
-![Welcome Page](./docs/Welcome page.png)
+!["Welcome Page"](https://github.com/gisellealmario/photolabs-starter/blob/main/docs/Welcome%20page.png)
 
 ### Liked photo in modal
-![Liked photo in modal](./docs/Liked photo in modal.png)
+!["Liked photo in modal"](https://github.com/gisellealmario/photolabs-starter/blob/main/docs/Liked%20photo%20in%20modal.png)
 
 ## Photos based on categories
-![Photos based on categories](./docs/Photos based on category.png)
+!["Photos based on categories"](https://github.com/gisellealmario/photolabs-starter/blob/main/docs/Photos%20based%20on%20category.png)
 

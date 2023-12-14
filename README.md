@@ -1,9 +1,8 @@
-# react-photolabs
-The PhotoLabs project for the Web Development React course programming.
-
 # Photolabs
+react-based single page app that allows users to view photos based on categories
 
-## Setup
+
+## Steps to start the Application
 
 Install dependencies with `npm install` in each respective `/frontend` and `/backend`.
 
@@ -22,3 +21,15 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
+
+## Screenshots
+
+### PhotoLabs Welcome Page
+(./docs/Welcome page.png)
+
+### Liked photo in modal
+(./docs/Liked photo in modal.png)
+
+## Photos based on categories
+(./docs/Photos based on category.png)
+

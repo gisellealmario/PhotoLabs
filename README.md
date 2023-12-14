@@ -25,11 +25,11 @@ npm start
 ## Screenshots
 
 ### PhotoLabs Welcome Page
-(./docs/Welcome page.png)
+![Welcome Page](./docs/Welcome page.png)
 
 ### Liked photo in modal
-(./docs/Liked photo in modal.png)
+![Liked photo in modal](./docs/Liked photo in modal.png)
 
 ## Photos based on categories
-(./docs/Photos based on category.png)
+![Photos based on categories](./docs/Photos based on category.png)
 
